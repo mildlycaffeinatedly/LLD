@@ -1,0 +1,24 @@
+# Exclude Elevator folders
+Elevator/
+Elevator-v2/
+
+# Java compiled files
+*.class
+
+# Package files
+*.jar
+*.war
+*.ear
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+.DS_Store
+
+# Build directories
+target/
+bin/
+
+# Logs
+*.log

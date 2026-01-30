@@ -1,0 +1,57 @@
+# Test 1: Player 1 wins (row)
+3
+Alice
+X
+Bob
+O
+1 1
+0 0
+1 2
+0 1
+1 0
+
+# Test 2: Draw
+3
+A
+X
+B
+O
+0 0
+0 1
+0 2
+1 1
+1 0
+1 2
+2 1
+2 0
+2 2
+
+# Test 3: Invalid moves (repeat cell, out of bounds)
+3
+P1
+X
+P2
+O
+0 0
+0 0
+3 3
+1 1
+2 2
+Sushant
+X
+Deepu
+O
+0
+1
+2
+2
+0
+2
+2
+0
+1
+1
+1
+0
+2
+1
