@@ -1,65 +1,29 @@
-# Elevator Project - Version Management
+# Repository Version Management
 
-This document explains the structure for maintaining multiple versions of the Elevator System project.
+This file documents versioning and module layout for this repository. It has been updated to reflect the current contents of the `LLD` folder.
 
-## Directory Structure
+## Current modules
 
-```
-LLD/
-├── Elevator/           (Original Version - Keep Stable)
-│   ├── pom.xml
-│   ├── README.md
-│   ├── src/
-│   │   ├── main/java/com/elevator/
-│   │   └── test/java/com/elevator/
-│   └── target/
-│
-└── Elevator-v2/        (Version 2 - Development Space)
-    ├── pom.xml
-    ├── README.md
-    └── src/
-        ├── main/java/com/elevator/
-        └── test/java/com/elevator/
-```
+The repository root `LLD/` currently contains these modules:
 
-## Usage
+- `AmazonLocker/` — locker system design and source under `AmazonLocker/src/`.
+- `TicTacToe/` — tic-tac-toe design and source under `TicTacToe/src/`.
+- `RateLimiter/` — rate-limiter module (empty or in-development).
 
-### Build Original Version (Elevator)
-```bash
-cd /Users/Sushant/Documents/LLD/Elevator
-mvn clean install
-mvn exec:java -Dexec.mainClass="com.elevator.Main"
-```
+Each module uses a non-standard `src/` layout in this repo (sources live directly under `src/`). A parent `pom.xml` at the repository root aggregates modules and provides a common Java version.
 
-### Build Version 2 (Elevator-v2)
-```bash
-cd /Users/Sushant/Documents/LLD/Elevator-v2
-mvn clean install
-mvn exec:java -Dexec.mainClass="com.elevator.Main"
-```
+## Build & Version guidance
 
-## Development Workflow
+- Use the root `pom.xml` to build all modules with Maven: `mvn -B package`.
+- Module `pom.xml` files configure the module `sourceDirectory` to the existing `src/` folder.
+- Compiled artifacts are kept out of source control; use the `out/`, `build/`, or `target/` directories for build output and add them to `.gitignore`.
 
-1. **Elevator/** - Keep this as your stable/reference implementation
-2. **Elevator-v2/** - Make improvements and changes here
-   - Refactor code
-   - Add new features
-   - Implement optimizations
-   - Run tests independently
+## About the old Elevator content
 
-## Switching Between Versions
+The previous content in this file described an `Elevator` project (with `Elevator/` and `Elevator-v2/`). That project is not present in this repository tree. If you have a separate Elevator project, keep its version-management documentation inside that project's repository or a dedicated folder. If not needed, the old Elevator-specific content has been removed from this file.
 
-Each directory has its own:
-- `pom.xml` - Independent Maven configuration
-- `src/` - Completely separate source code
-- `target/` - Separate build output
-- Dependencies - Isolated per version
+## Recommendation
 
-This ensures changes in one version don't affect the other.
+- Keep this `VERSION_MANAGEMENT.md` as a short, repo-level guide to modules and build practices.
+- If you prefer module-specific versioning notes, add a `VERSION_MANAGEMENT.md` inside each module (for example `AmazonLocker/VERSION_MANAGEMENT.md`).
 
-## Notes
-
-- Both versions use Java 11 (can be upgraded independently)
-- Each version can have different dependencies
-- Test suites are independent
-- Build artifacts go to separate target/ directories

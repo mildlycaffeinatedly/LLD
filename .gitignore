@@ -10,15 +10,25 @@ Elevator-v2/
 *.war
 *.ear
 
+# Compiled output dirs (common)
+out/
+build/
+target/
+
 # IDE files
 .idea/
 *.iml
 .vscode/
-.DS_Store
+.classpath
+.project
+.settings/
 
-# Build directories
-target/
-bin/
+# OS
+.DS_Store
+Thumbs.db
 
 # Logs
 *.log
+
+# Maven wrapper
+.mvn/

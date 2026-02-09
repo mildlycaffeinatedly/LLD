@@ -1,12 +1,12 @@
-// Tic-tac-toe design
+Tic-tac-toe design
 
-// Entities:
+Entities:
     - Player
     - Game
     - Board
     - Move
 
-// Responsibilites:
+Responsibilites:
 
 
 enum Marker {
